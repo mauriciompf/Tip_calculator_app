@@ -4,20 +4,153 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- displays site properly based on user's device -->
-
     <link
       rel="icon"
       type="image/png"
       sizes="32x32"
-      href="./images/favicon-32x32.png"
+      href="./assets/images/favicon-32x32.png"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@700&display=swap"
+      rel="stylesheet"
     />
     <link rel="stylesheet" href="./assets/css/output.css" />
     <title>Frontend Mentor | Tip calculator app</title>
   </head>
-  <body>
-    <!-- Bill Select Tip % 5% 10% 15% 25% 50% Custom Number of People Tip Amount /
-    person Total / person Reset
-
+  <body class="h-full">
+    <main
+      class="grid place-items-center h-screen bg-neutral-light-grayish-cyan font-space-mono"
+    >
+      <!-- Container -->
+      <div class="">
+        <div class="md:py-0 md:mb-16 flex justify-center py-10">
+          <img src="./assets/images/logo.svg" alt="Splitter" />
+        </div>
+        <!-- Columns (Card) -->
+        <div
+          class="md:w-[800px] md:flex md:gap-8 md:rounded-3xl p-6 bg-neutral-white rounded-tl-3xl rounded-tr-3xl"
+        >
+          <!-- Tip Calculate -->
+          <div class="text-neutral-dark-grayish-cyan">
+            <div class="mb-6">
+              <label class="" for="">Bill</label>
+              <div class="mt-1 relative">
+                <img
+                  class="absolute top-[1.2rem] left-4"
+                  src="./assets/images/icon-dollar.svg"
+                  alt=""
+                />
+                <input
+                  id="bill"
+                  class="focus:outline-primary-stron-cyan text-neutral-very-dark-cyan bg-neutral-very-light-grayish-cyan w-full py-[.5rem] pr-4 pl-8 rounded-md text-right text-text-form"
+                  type="number"
+                  min="0"
+                  placeholder="0"
+                />
+              </div>
+            </div>
+            <div class="mb-6">
+              <h3 class="mb-3">Select Tip %</h3>
+              <div id="buttons" class="grid grid-cols-2 md:grid-cols-3 gap-3">
+                <button
+                  class="text-[1.25rem] focus:bg-primary-stron-cyan focus:text-neutral-very-dark-cyan hover:bg-primary-stron-cyan hover:text-neutral-very-dark-cyan rounded-md bg-neutral-very-dark-cyan text-neutral-white w-full py-1 focus:outline-transparent"
+                  value="5%"
+                >
+                  5%
+                </button>
+                <button
+                  class="text-[1.25rem] focus:bg-primary-stron-cyan focus:text-neutral-very-dark-cyan hover:bg-primary-stron-cyan hover:text-neutral-very-dark-cyan rounded-md bg-neutral-very-dark-cyan text-neutral-white w-full py-1 focus:outline-transparent"
+                  value="10%"
+                >
+                  10%
+                </button>
+                <button
+                  class="text-[1.25rem] focus:bg-primary-stron-cyan focus:text-neutral-very-dark-cyan hover:bg-primary-stron-cyan hover:text-neutral-very-dark-cyan rounded-md bg-neutral-very-dark-cyan text-neutral-white w-full py-1 focus:outline-transparent"
+                  value="15%"
+                >
+                  15%
+                </button>
+                <button
+                  class="text-[1.25rem] focus:bg-primary-stron-cyan focus:text-neutral-very-dark-cyan hover:bg-primary-stron-cyan hover:text-neutral-very-dark-cyan rounded-md bg-neutral-very-dark-cyan text-neutral-white w-full py-1 focus:outline-transparent"
+                  value="20%"
+                >
+                  25%
+                </button>
+                <button
+                  class="text-[1.25rem] focus:bg-primary-stron-cyan focus:text-neutral-very-dark-cyan hover:bg-primary-stron-cyan hover:text-neutral-very-dark-cyan rounded-md bg-neutral-very-dark-cyan text-neutral-white w-full py-1 focus:outline-transparent"
+                  value="50%"
+                >
+                  50%
+                </button>
+                <button
+                  id="custom"
+                  class="text-[1.25rem] focus:bg-primary-stron-cyan focus:text-neutral-very-dark-cyan hover:bg-primary-stron-cyan hover:text-neutral-very-dark-cyan rounded-md bg-neutral-very-light-grayish-cyan text-neutral-very-dark-cyan w-full py-1 focus:outline-transparent"
+                  value="custom"
+                >
+                  Custom
+                </button>
+              </div>
+            </div>
+            <div class="mb-6 md:m-0">
+              <label for="">Number of People</label>
+              <div class="mt-1 relative">
+                <img
+                  class="absolute top-[1.2rem] left-4"
+                  src="./assets/images/icon-person.svg"
+                  alt=""
+                />
+                <input
+                  id="number-of-people"
+                  class="focus:outline-primary-stron-cyan text-neutral-very-dark-cyan bg-neutral-very-light-grayish-cyan w-full py-[.5rem] pr-4 pl-8 rounded-md text-right text-text-form"
+                  type="number"
+                  min="0"
+                  placeholder="0"
+                />
+              </div>
+            </div>
+          </div>
+          <!-- Result -->
+          <div
+            class="md:flex md:flex-col md:justify-between md:pt-10 md:w-1/2 bg-neutral-very-dark-cyan p-6 pt-8 rounded-2xl"
+          >
+            <div>
+              <div class="flex items-center justify-between mb-6">
+                <div>
+                  <h3 class="text-neutral-very-light-grayish-cyan">
+                    Tip Amount
+                  </h3>
+                  <span class="text-[0.85rem] text-neutral-grayish-cyan"
+                    >/ person</span
+                  >
+                </div>
+                <div class="text-[1.75rem] text-primary-stron-cyan">
+                  <span>$0.00</span>
+                </div>
+              </div>
+              <div class="flex items-center justify-between mb-6">
+                <div>
+                  <h3 class="text-neutral-very-light-grayish-cyan">Total</h3>
+                  <span class="text-[0.85rem] text-neutral-grayish-cyan"
+                    >/ person</span
+                  >
+                </div>
+                <div class="text-[1.75rem] text-primary-stron-cyan">
+                  <span>$0.00</span>
+                </div>
+              </div>
+            </div>
+            <button
+              class="rounded-md bg-primary-stron-cyan text-neutral-very-dark-cyan py-2 w-full uppercase"
+            >
+              Reset
+            </button>
+          </div>
+        </div>
+      </div>
+    </main>
+    <!--             
     <div class="attribution">
       Challenge by
       <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
