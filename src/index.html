@@ -19,23 +19,23 @@
     <link rel="stylesheet" href="./assets/css/output.css" />
     <title>Frontend Mentor | Tip calculator app</title>
   </head>
-  <body class="h-full">
+  <body class="h-full md:overflow-hidden">
     <main
-      class="grid place-items-center h-screen bg-neutral-light-grayish-cyan font-space-mono"
+      class="grid place-items-center md:h-screen bg-neutral-light-grayish-cyan font-space-mono"
     >
       <!-- Container -->
-      <div class="">
-        <div class="md:py-0 md:mb-16 flex justify-center py-10">
+      <div class="min-[376px]:mb-8 max-[768px]:mb-0">
+        <div class="md:py-0 flex justify-center py-10">
           <img src="./assets/images/logo.svg" alt="Splitter" />
         </div>
         <!-- Columns (Card) -->
         <div
-          class="md:w-[800px] md:flex md:gap-8 md:rounded-3xl p-6 bg-neutral-white rounded-tl-3xl rounded-tr-3xl"
+          class="md:w-[770px] md:mt-16 md:flex md:gap-8 md:rounded-3xl md:p-8 p-6 bg-neutral-white rounded-tl-3xl rounded-tr-3xl"
         >
           <!-- Tip Calculate -->
           <div class="text-neutral-dark-grayish-cyan">
             <div class="mb-6">
-              <label class="" for="">Bill</label>
+              <label class="" for="bill">Bill</label>
               <div class="mt-1 relative">
                 <img
                   class="absolute top-[1.2rem] left-4"
@@ -46,7 +46,7 @@
                   id="bill"
                   class="focus:outline-primary-stron-cyan text-neutral-very-dark-cyan bg-neutral-very-light-grayish-cyan w-full py-[.5rem] pr-4 pl-8 rounded-md text-right text-text-form"
                   type="number"
-                  min="0"
+                  min="1"
                   placeholder="0"
                 />
               </div>
@@ -94,7 +94,10 @@
               </div>
             </div>
             <div class="mb-6 md:m-0">
-              <label for="">Number of People</label>
+              <div class="flex justify-between">
+                <label for="number-of-people">Number of People</label>
+                <span id="error" class="text-red-500" aria-live="polite"></span>
+              </div>
               <div class="mt-1 relative">
                 <img
                   class="absolute top-[1.2rem] left-4"
@@ -126,7 +129,7 @@
                   >
                 </div>
                 <div class="text-[1.75rem] text-primary-stron-cyan">
-                  <span>$0.00</span>
+                  <span id="tip-amount">$0.00</span>
                 </div>
               </div>
               <div class="flex items-center justify-between mb-6">
@@ -137,12 +140,14 @@
                   >
                 </div>
                 <div class="text-[1.75rem] text-primary-stron-cyan">
-                  <span>$0.00</span>
+                  <span id="total">$0.00</span>
                 </div>
               </div>
             </div>
             <button
-              class="rounded-md bg-primary-stron-cyan text-neutral-very-dark-cyan py-2 w-full uppercase"
+              id="reset-btn"
+              class="rounded-md bg-primary-stron-cyan text-neutral-very-dark-cyan py-2 w-full uppercase cursor-not-allowed focus:outline-transparent disabled:opacity-30"
+              disabled
             >
               Reset
             </button>
