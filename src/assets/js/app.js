@@ -39,7 +39,6 @@ buttons.forEach((button) => {
 
 function calculateTip(value) {
   const percentageTip = parseInt(value) / 100;
-  // console.log(typeof currentButton.value);
   const totalTip = bill.value * percentageTip;
   let tipAmount = totalTip / numberOfPeople.value;
   tipAmount = (Math.floor(tipAmount * 100) / 100).toFixed(2);
