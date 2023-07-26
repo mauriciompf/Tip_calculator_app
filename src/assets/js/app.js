@@ -21,14 +21,13 @@ buttons.forEach((button) => {
           "class",
           "focus:outline-2 hover:outline-2 focus:outline-primary-stron-cyan text-neutral-very-dark-cyan bg-neutral-very-light-grayish-cyan pr-2 pl-8 rounded-md text-right text-[1.25rem] md:w-[107px] w-full caret-color"
         );
+        custom.setAttribute("min", "0");
         button.parentElement.appendChild(custom);
         custom.select();
         document.querySelector("#custom").remove();
-        custom.addEventListener("keypress", (e) => {
-          if (e.key === "Enter") {
-            e.preventDefault();
-            calculateTip(custom.value);
-          }
+        custom.addEventListener("input", (e) => {
+          e.preventDefault();
+          calculateTip(custom.value);
         });
       } else {
         calculateTip(currentButton.value);
